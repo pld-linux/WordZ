@@ -1,0 +1,29 @@
+--- Wordz-src/Makefile~	2008-12-24 02:14:28.000000000 +0100
++++ Wordz-src/Makefile	2008-12-24 09:39:54.000000000 +0100
+@@ -9,19 +9,19 @@
+ 	@echo Type \"make linux\" or \"make windows\"
+ 
+ linux:
+-	g++ -DDATAPATH=\"$(DATAPATH)\" *.cpp -o wordz \
+-		       `sdl-config --cflags --libs` -lGL -lGLU
++	$(CXX) $(CFLAGS) $(LDFLAGS) -DDATAPATH=\"$(DATAPATH)\" *.cpp -o wordz `sdl-config --cflags --libs` -lGL -lGLU
+ 
+ windows:
+ 	g++ -mwindows *.cpp icon.res -o wordz.exe -lsdl -lopengl32 -lglu32
+ 	strip wordz.exe
+ 
+ install:
+-	cp wordz $(PREFIX)/bin
+-	mkdir -p $(DATAPATH)
+-	cp data/font.bmp $(DATAPATH)
+-	cp data/icon.bmp $(DATAPATH)
+-	cp data/words $(DATAPATH)
++	mkdir -p $(DESTDIR)$(PREFIX)/bin
++	cp wordz $(DESTDIR)$(PREFIX)/bin
++	mkdir -p $(DESTDIR)$(DATAPATH)
++	cp data/font.bmp $(DESTDIR)$(DATAPATH)
++	cp data/icon.bmp $(DESTDIR)$(DATAPATH)
++	cp data/words $(DESTDIR)$(DATAPATH)
+ 
+ uinstall:
+ 	rm $(PREFIX)/bin/wordz
