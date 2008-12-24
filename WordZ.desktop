@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WordZ
+Comment=Simple crossword game
+Comment[pl]=Prosta gra krzyżówkowa
+Icon=WordZ
+Exec=wordz
+Terminal=false
+Type=Application
+Categories=Game;
+# vi: encoding=utf-8
